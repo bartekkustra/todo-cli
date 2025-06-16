@@ -302,16 +302,30 @@ class TodoApp {
   }
 
   renderItemList(items, selectedIndex) {
+    const terminalWidth = process.stdout.columns || 80;
+    
     items.forEach((item, index) => {
       if (item.type === 'separator') {
-        console.log(chalk.gray(item.text));
+        // Handle separator wrapping
+        const text = chalk.gray(item.text);
+        this.printWithWrapping(text, terminalWidth);
       } else {
         const isSelected = index === selectedIndex;
         const prefix = isSelected ? '❯ ' : '  ';
-        console.log(prefix + item.text);
+        const fullLine = prefix + item.text;
+        this.printWithWrapping(fullLine, terminalWidth);
       }
     });
-    console.log('\n' + chalk.gray('↑↓ arrows, ENTER to toggle | n:new, f:filter, e:edit, o:options | ESC/q:refresh'));
+    
+    console.log(''); // Empty line
+    const instructionText = chalk.gray('↑↓ arrows, ENTER to toggle | n:new, f:filter, e:edit, o:options | ESC/q:refresh');
+    this.printWithWrapping(instructionText, terminalWidth);
+  }
+  
+  printWithWrapping(text, terminalWidth) {
+    // For now, just use console.log but we could implement proper wrapping here
+    // The terminal will handle the wrapping automatically
+    console.log(text);
   }
 
   getPreviousSelectableIndex(items, currentIndex) {
@@ -345,12 +359,58 @@ class TodoApp {
   }
 
   updateSelection(items, newIndex) {
-    // Move cursor up to the start of the list
-    const totalLines = items.length + 2; // +2 for the instruction line
-    process.stdout.write(`\u001b[${totalLines}A`);
+    // Simple approach: clear screen and re-render everything
+    // This avoids complex cursor positioning issues with line wrapping
+    if (!this.debugMode) {
+      console.clear();
+    }
+    
+    // Re-render header
+    console.log(chalk.bold.blue('🗒️  Todo CLI'));
+    
+    if (this.debugMode) {
+      console.log(chalk.yellow('🐛 DEBUG MODE - process.argv:'), process.argv);
+      console.log(chalk.yellow('🐛 DEBUG MODE - debugMode:'), this.debugMode);
+    }
+    
+    // Re-render stats (we'll need to pass this info)
+    this.renderStatsHeader();
+    
+    console.log('');
+    console.log(chalk.bold('Your Todos:\n'));
+    
+    // Show natural language examples if few todos
+    const todoCount = items.filter(item => item.type === 'todo').length;
+    if (todoCount < 3) {
+      console.log(chalk.gray('💡 Natural Language Examples:'));
+      console.log(chalk.gray('   "!Fix critical bug (2d)"     - High priority, due in 2 days'));
+      console.log(chalk.gray('   "_Clean desk @home"          - Low priority, tagged "home"'));
+      console.log(chalk.gray('   "Meeting prep (2024-12-25)"  - Medium priority, specific date'));
+      console.log('');
+    }
     
     // Re-render the list
     this.renderItemList(items, newIndex);
+  }
+  
+  renderStatsHeader() {
+    // Get fresh stats
+    const stats = this.todoManager.getStatistics();
+    const overdue = this.todoManager.getOverdueTodos().length;
+    
+    let statusLine = chalk.gray(`📋 ${stats.pending} pending, ${stats.completed} completed`);
+    if (overdue > 0) {
+      statusLine += chalk.red(`, ${overdue} overdue`);
+    }
+    if (Object.keys(this.currentFilters).length > 0) {
+      statusLine += chalk.blue(' (filtered)');
+    }
+    console.log(statusLine);
+  }
+  
+  stripAnsiCodes(str) {
+    // Remove ANSI escape codes to get actual text length
+    return str.replace(/\u001b\[[0-9;]*m/g, '');
   }
 
   toggleTodoInPlace(selectedItem, itemIndex, items) {

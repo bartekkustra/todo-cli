@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.1] - 2025-06-16
+
+### Bug Fixes
+- **Fixed Terminal Width Compatibility**: Resolved UI corruption when terminal window is narrower than todo content
+  - Fixed line wrapping issues that caused display artifacts
+  - Eliminated duplicate rendering and garbled text
+  - Improved cursor positioning for narrow terminal windows
+  - Navigation now works reliably across all terminal widths
+
+### Technical Improvements
+- **Simplified Display Logic**: Replaced complex cursor positioning with full-screen refresh approach
+- **Enhanced Terminal Compatibility**: Better handling of various terminal sizes and line wrapping behavior
+
+---
+
 ## [1.1.0] - 2025-06-16
 
 ### Major Features Added
