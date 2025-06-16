@@ -129,11 +129,10 @@ dist
 # MacOS
 .DS_Store
 
-# JetBrains IDEs
+# IDEs
 .idea/
-
-# VS Code
 .vscode/
+.cursor/
 
 # Temporary files
 *.tmp

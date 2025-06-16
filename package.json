@@ -1,13 +1,14 @@
 {
   "name": "@nosekbk/todo-cli",
-  "version": "1.0.0",
-  "description": "A beautiful, interactive command-line todo application with arrow key navigation and instant toggling",
+  "version": "1.1.0",
+  "description": "A beautiful, interactive command-line todo application with natural language input, tags, priorities, and due dates",
   "main": "bin/todo.js",
   "bin": {
     "todo": "./bin/todo.js"
   },
   "scripts": {
     "start": "node bin/todo.js",
+    "debug": "node bin/todo.js --debug",
     "test": "echo \"✅ Package tests passed\"",
     "prepublishOnly": "echo \"Package ready for publishing\""
   },
