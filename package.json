@@ -1,5 +1,5 @@
 {
-  "name": "@bartoszkustra/todo-cli",
+  "name": "@nosekbk/todo-cli",
   "version": "1.0.0",
   "description": "A beautiful, interactive command-line todo application with arrow key navigation and instant toggling",
   "main": "bin/todo.js",
@@ -23,18 +23,18 @@
   ],
   "author": {
     "name": "Bartosz Kustra",
-    "email": "your-email@example.com",
-    "url": "https://github.com/bartoszkustra"
+    "email": "bartekkustra@gmail.com",
+    "url": "https://github.com/bartekkustra"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bartoszkustra/todo-cli.git"
+    "url": "git+https://github.com/bartekkustra/todo-cli.git"
   },
   "bugs": {
-    "url": "https://github.com/bartoszkustra/todo-cli/issues"
+    "url": "https://github.com/bartekkustra/todo-cli/issues"
   },
-  "homepage": "https://github.com/bartoszkustra/todo-cli#readme",
+  "homepage": "https://github.com/bartekkustra/todo-cli#readme",
   "engines": {
     "node": ">=16.0.0"
   },

@@ -16,7 +16,7 @@ A beautiful, interactive command-line todo application built with Node.js. Manag
 ### Global Installation (Recommended)
 
 ```bash
-npm install -g @your-username/todo-cli
+npm install -g @nosekbk/todo-cli
 ```
 
 Then use anywhere:
@@ -27,14 +27,14 @@ todo
 ### Local Installation
 
 ```bash
-npm install @your-username/todo-cli
+npm install @nosekbk/todo-cli
 npx todo-cli
 ```
 
 ### From Source
 
 ```bash
-git clone https://github.com/your-username/todo-cli.git
+git clone https://github.com/bartekkustra/todo-cli.git
 cd todo-cli
 npm install
 npm install -g .
@@ -88,7 +88,7 @@ Todos are automatically saved to `~/.todos.json` in your home directory. The fil
 ### Setup
 
 ```bash
-git clone https://github.com/your-username/todo-cli.git
+git clone https://github.com/bartekkustra/todo-cli.git
 cd todo-cli
 nvm use  # If using nvm
 npm install
@@ -130,7 +130,7 @@ No configuration needed! The app works out of the box with sensible defaults.
 ### Permission Issues
 If you get permission errors during global installation:
 ```bash
-sudo npm install -g @your-username/todo-cli
+sudo npm install -g @nosekbk/todo-cli
 ```
 
 ### Node Version Issues
