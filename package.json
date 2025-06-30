@@ -1,6 +1,6 @@
 {
   "name": "@nosekbk/todo-cli",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A beautiful, interactive command-line todo application with natural language input, tags, priorities, and due dates",
   "main": "bin/todo.js",
   "bin": {

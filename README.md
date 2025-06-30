@@ -1,15 +1,23 @@
-# Todo CLI
+# Todo CLI - Natural Language Edition
 
-A beautiful, interactive command-line todo application built with Node.js. Manage your tasks with an intuitive terminal interface featuring arrow key navigation, instant toggling, and bulk operations.
+A powerful, interactive command-line todo application with natural language input parsing. Create todos with priorities, tags, and due dates using intuitive syntax like `!Fix bug (2d) @work`. Features advanced keyboard shortcuts, in-place toggling, and sophisticated task organization.
+
+![Todo CLI - Natural Language Edition](./todo-cli.png)
 
 ## ✨ Features
 
-- **Interactive Interface** - Navigate with arrow keys, no complex commands to remember
-- **Instant Todo Toggle** - Click any todo to mark complete/incomplete
-- **Persistent Storage** - Todos saved automatically in your home directory
-- **Bulk Operations** - Edit mode for managing multiple todos at once
+- **Natural Language Input** - Create todos with intuitive syntax: `!Fix critical bug (2d) @work`
+- **Priority System** - Use `!` for high priority, `_` for low priority, or medium by default
+- **Flexible Tags** - Organize with `@work`, `@home`, `@project` tags for perfect categorization
+- **Smart Due Dates** - Set dates with `(2d)`, `(tomorrow)`, `(2025-07-01)`, or other natural formats
+- **Instant Keyboard Shortcuts** - Press `n`, `f`, `e`, `o` for quick actions without menu navigation
+- **Perfect In-Place Toggling** - Toggle todo status with no screen refresh or cursor movement
+- **Visual Grouping** - Todos automatically grouped by tags with smart priority/date sorting
+- **Advanced Filtering** - Filter by text, tags, priority, status, or overdue items
+- **Bulk Operations** - Edit mode for managing multiple todos simultaneously
+- **Persistent Storage** - Todos saved automatically in `~/.todos.json`
 - **Beautiful Design** - Colorful, emoji-rich interface with clear visual indicators
-- **Streamlined Workflow** - No interruptions, smooth navigation between actions
+- **Debug Mode** - Use `--debug` flag for troubleshooting and development
 
 ## 🚀 Installation
 
@@ -48,31 +56,83 @@ Simply run `todo` to start the interactive interface:
 todo
 ```
 
+### Natural Language Todo Creation
+
+Create todos using natural language syntax:
+
+```bash
+# Basic todo
+Buy groceries
+
+# High priority with due date
+!Submit report (2d)
+
+# Tagged with low priority
+_Clean garage @home
+
+# Complex example
+!Fix critical bug (tomorrow) @work
+```
+
+**Syntax Elements:**
+- `!` = High priority (🔴)
+- `_` = Low priority (🟢)
+- No prefix = Medium priority (🟡)
+- `@tag` = Add tags like `@work`, `@home`, `@project`
+- `(date)` = Set due dates: `(2d)`, `(tomorrow)`, `(2025-07-01)`
+
 ### Main Interface
 
-The default view shows your todo list with these options:
+The default view shows your todos grouped by tags:
 
-- **Select any todo** → Toggle completion status (✅/⭕)
-- **📝 Add new todo** → Create a new task
-- **✏️ Edit mode** → Bulk operations on multiple todos
-- **🗑️ Clear completed** → Remove all completed todos
-- **🚪 Quit** → Exit the application
+- **Select any todo** → Toggle completion status (✅/⭕) instantly
+- **Press `n`** → Add new todo with natural language input
+- **Press `f`** → Filter todos by text, tags, priority, or status
+- **Press `e`** → Edit mode for bulk operations
+- **Press `o`** → Options menu with statistics and settings
+- **Press `q` or `ESC`** → Refresh view or exit
 
-### Navigation
+### Keyboard Shortcuts
 
-- **Arrow Keys** ↑↓ - Navigate through todos and options
-- **Enter** - Select todo (to toggle) or action
-- **Space** - In edit mode, select/deselect multiple items
-- **Ctrl+C** - Quick exit
+**Main Interface:**
+- **↑↓ Arrow Keys** - Navigate through todos
+- **Enter** - Toggle todo completion status instantly
+- **`n`** - Add new todo (natural language input)
+- **`f`** - Filter & search todos
+- **`e`** - Enter edit mode for bulk operations
+- **`o`** - Open options menu
+- **`q` / `ESC`** - Refresh view or exit
+- **`Ctrl+C`** - Quick exit
+
+**Edit Mode:**
+- **Space** - Select/deselect multiple todos
+- **Enter** - Apply bulk action to selected todos
+- **`ESC`** - Return to main view
+
+**Debug Mode:**
+- **`--debug`** - Enable debug output for troubleshooting
 
 ### Edit Mode (Bulk Operations)
 
-1. Select **✏️ Edit mode** from main menu
+1. Press **`e`** or select **✏️ Edit mode**
 2. Use **Space** to select multiple todos
 3. Choose action:
    - **✅ Mark all as completed**
-   - **⭕ Mark all as pending** 
+   - **⭕ Mark all as pending**
+   - **🔴 Set priority to High**
+   - **🟡 Set priority to Medium**
+   - **🟢 Set priority to Low**
    - **🗑️ Delete all selected**
+
+### Filtering & Search
+
+1. Press **`f`** to open filter menu
+2. Choose filter type:
+   - **Text search** - Find todos containing specific text
+   - **Tag filter** - Show only todos with specific tags
+   - **Priority filter** - Filter by High/Medium/Low priority
+   - **Status filter** - Show completed or pending todos
+   - **Overdue filter** - Show only overdue items
 
 ## 📁 Data Storage
 
@@ -100,6 +160,11 @@ npm install
 npm start
 # or
 node bin/todo.js
+
+# With debug mode
+npm run debug
+# or
+node bin/todo.js --debug
 ```
 
 ### Project Structure
@@ -107,13 +172,15 @@ node bin/todo.js
 ```
 todo-cli/
 ├── bin/
-│   └── todo.js          # Main CLI application
+│   └── todo.js          # Main CLI application with natural language parsing
 ├── lib/
-│   └── todoManager.js   # Todo data management
-├── package.json         # Package configuration
-├── README.md           # This file
+│   └── todoManager.js   # Todo data management & persistence
+├── CHANGELOG.md        # Version history and feature changes
+├── LICENSE             # MIT license
+├── package.json         # Package configuration (v1.1.2)
+├── README.md           # This documentation
 ├── .gitignore          # Git ignore rules
-└── .nvmrc              # Node version specification
+└── .nvmrc              # Node version specification (16+)
 ```
 
 ## 📦 Dependencies
