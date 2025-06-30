@@ -172,15 +172,15 @@ node bin/todo.js --debug
 ```
 todo-cli/
 ├── bin/
-│   └── todo.js          # Main CLI application with natural language parsing
+│   └── todo.js         # Main CLI application with natural language parsing
 ├── lib/
-│   └── todoManager.js   # Todo data management & persistence
+│   └── todoManager.js  # Todo data management & persistence
 ├── CHANGELOG.md        # Version history and feature changes
 ├── LICENSE             # MIT license
-├── package.json         # Package configuration (v1.1.2)
+├── package.json        # Package configuration (v1.1.3)
 ├── README.md           # This documentation
 ├── .gitignore          # Git ignore rules
-└── .nvmrc              # Node version specification (16+)
+└── .nvmrc              # Node version specification (22+)
 ```
 
 ## 📦 Dependencies
@@ -201,7 +201,7 @@ sudo npm install -g @nosekbk/todo-cli
 ```
 
 ### Node Version Issues
-Make sure you're using Node.js 16+:
+Make sure you're using Node.js 22+:
 ```bash
 node --version
 ```
