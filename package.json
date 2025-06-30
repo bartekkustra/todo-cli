@@ -1,6 +1,6 @@
 {
   "name": "@nosekbk/todo-cli",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "A beautiful, interactive command-line todo application with natural language input, tags, priorities, and due dates",
   "main": "bin/todo.js",
   "bin": {
@@ -8,9 +8,7 @@
   },
   "scripts": {
     "start": "node bin/todo.js",
-    "debug": "node bin/todo.js --debug",
-    "test": "echo \"✅ Package tests passed\"",
-    "prepublishOnly": "echo \"Package ready for publishing\""
+    "debug": "node bin/todo.js --debug"
   },
   "keywords": [
     "todo",
@@ -37,13 +35,14 @@
   },
   "homepage": "https://github.com/bartekkustra/todo-cli#readme",
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=22.0.0"
   },
   "files": [
     "bin/",
     "lib/",
-    "README.md",
-    "LICENSE"
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md"
   ],
   "dependencies": {
     "chalk": "^4.1.2",

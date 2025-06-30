@@ -142,7 +142,7 @@ Todos are automatically saved to `~/.todos.json` in your home directory. The fil
 
 ### Prerequisites
 
-- Node.js 16+ (see `.nvmrc` for exact version)
+- Node.js 22+ (see `.nvmrc` for exact version)
 - npm
 
 ### Setup
@@ -177,7 +177,7 @@ todo-cli/
 │   └── todoManager.js  # Todo data management & persistence
 ├── CHANGELOG.md        # Version history and feature changes
 ├── LICENSE             # MIT license
-├── package.json        # Package configuration (v1.1.3)
+├── package.json        # Package configuration
 ├── README.md           # This documentation
 ├── .gitignore          # Git ignore rules
 └── .nvmrc              # Node version specification (22+)
